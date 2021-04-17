@@ -30,11 +30,11 @@ const App = () => {
     console.log("add", task);
     const id = Math.floor(Math.random() * 1000) + 1;
 
-    const newTask = {id, ...task};
+    const newTask = { id, ...task };
 
     console.log("new", newTask);
 
-    setTasks([...tasks,newTask]) 
+    setTasks([...tasks, newTask]);
   };
 
   //delete task
@@ -50,16 +50,22 @@ const App = () => {
     );
   };
   return (
-    <div className="container">
-      <Header title="Task Tracker" />
+    <>
+      <div className="container">
+        <Header title="Task Tracker" />
 
-      <AddTask onAdd={addTask} />
-      {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deletetask} onToggle={toggleReminder} />
-      ) : (
-        "No Task to show"
-      )}
-    </div>
+        <AddTask onAdd={addTask} />
+        {tasks.length > 0 ? (
+          <Tasks
+            tasks={tasks}
+            onDelete={deletetask}
+            onToggle={toggleReminder}
+          />
+        ) : (
+          "No Task to show"
+        )}
+      </div>
+    </>
   );
 };
 
